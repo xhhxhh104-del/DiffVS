@@ -1,0 +1,9 @@
+data_root: /path/to/data_root
+marker_names: [CD3, CD20]
+image_size: 256
+batch_size: 4
+epochs: 20
+lr: 1.0e-4
+num_workers: 2
+save_dir: checkpoints
+seed: 42
