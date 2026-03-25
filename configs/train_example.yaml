@@ -1,0 +1,37 @@
+data:
+  root: /path/to/hemit_root
+  he_glob: "**/*HE*.tif"
+  mihc_glob: "**/*mIHC*.tif"
+  marker_from_name_sep: "_"
+  marker_from_name_index: -1
+  image_size: 256
+  train_split: 0.9
+  seed: 42
+
+model:
+  latent_channels: 4
+  unet_base_channels: 128
+  marker_embed_dim: 64
+  time_embed_dim: 128
+
+train:
+  batch_size: 4
+  num_workers: 4
+  epochs_diffusion: 50
+  epochs_onestep: 20
+  lr: 1.0e-4
+  weight_decay: 1.0e-2
+  save_every: 1
+  output_dir: outputs
+  device: cuda
+
+loss:
+  lambda_noise: 1.0
+  lambda_x0: 0.5
+  lambda_l1: 1.0
+  lambda_mse: 0.5
+
+diffusion:
+  timesteps: 1000
+  beta_start: 1.0e-4
+  beta_end: 2.0e-2
